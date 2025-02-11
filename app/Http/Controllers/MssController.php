@@ -27,6 +27,7 @@ class MssController extends Controller
     public function store(Request $request)
     {
         // ngasih komen untuk melanjutkan array mss di kontroller di sini pake foreach
+        // ngasih tambahan komen
         $request->validate([
             'kode' => 'required|unique:msses,kode|max:20',
             'nama' => 'required',
