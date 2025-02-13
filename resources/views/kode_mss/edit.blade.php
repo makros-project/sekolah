@@ -12,11 +12,11 @@
                 @method('PUT')
                 <div class="form-group">
                     <label>Kode MSS</label>
-                    <input type="text" name="kode_mss" value="{{ $kodeMss->kode_mss }}" class="form-control" readonly>
+                    <input type="text" name="kode_mss" value="{{ $kodeMss->kode_mss }}" class="form-control" >
                 </div>
                 <div class="form-group">
                     <label>Poin MSS</label>
-                    <input type="text" name="poin" value="{{ $kodeMss->poin }}" class="form-control" readonly>
+                    <input type="text" name="poin" value="{{ $kodeMss->poin }}" class="form-control" >
                 </div>
                 <div class="form-group">
                     <label>Keterangan</label>

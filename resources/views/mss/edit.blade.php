@@ -22,10 +22,7 @@
                     <label for="poin">Poin</label>
                     <input type="number" name="poin" class="form-control" value="{{ $mss->poin }}" required>
                 </div>
-                <div class="form-group">
-                    <label for="kode_mss">Kode MSS</label>
-                    <input type="text" name="kode_mss" class="form-control" value="{{ $mss->kode_mss }}" required>
-                </div>
+      
                 <div class="form-group">
                     <label for="tanggal">Tanggal</label>
                     <input type="date" name="tanggal" class="form-control" value="{{ $mss->tanggal }}" required>

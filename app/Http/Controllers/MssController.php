@@ -11,12 +11,12 @@ class MssController extends Controller
 {
     public function index()
     {
-        $mss = Mss::all();
+        $mss = Mss::orderby('id', 'desc')->get();
         $siswas = Siswa::all();
         $gurus = Guru::all();
-        $kode_mss = KodeMss::all();
+        $kode_msses = KodeMss::all();
 
-        return view('mss.index', compact('mss','siswas', 'gurus', 'kode_mss'));
+        return view('mss.index', compact('mss','siswas', 'gurus', 'kode_msses'));
     }
 
     public function create()
@@ -25,23 +25,36 @@ class MssController extends Controller
     }
 
     public function store(Request $request)
-    {
-        // ngasih komen untuk melanjutkan array mss di kontroller di sini pake foreach
-        // ngasih tambahan komen
-        $request->validate([
-            'kode' => 'required|unique:msses,kode|max:20',
-            'nama' => 'required',
-            'poin' => 'required|integer|min:0',
-            'kode_mss' => 'required',
-            'tanggal' => 'required|date',
-            'guru' => 'required',
-            'kelas' => 'required',
-            'karakter' => 'required',
-        ]);
+ {
+      $request->validate([
+            'guru' => 'required',  // Validasi untuk kode, harus unik
+            'nama' => 'required',  // Nama harus diisi
+            'mss' => 'required',  // Nama harus diisi
+            'tanggal' => 'required|date',  // Tanggal harus valid
+         
+        
+         ]);
 
-        Mss::create($request->all());
-        return redirect()->route('mss.index')->with('success', 'Data MSS berhasil ditambahkan.');
-    }
+    foreach ($request->mss as $arraymss) {
+
+         Mss::create([
+            'guru' => $request->guru,  // Menggunakan nama_siswa untuk kode (sesuaikan dengan logika)
+            'nama' => explode("|",$request->nama)[0],  // Menggunakan nama_siswa untuk nama
+            'kelas' => explode("|",$request->nama)[1],  // Menggunakan nama_siswa untuk nama
+            'kode' => explode("|",$arraymss)[0],  // Menggunakan nama_siswa untuk nama
+            'poin' => explode("|",$arraymss)[1],  // Menggunakan nama_siswa untuk nama
+            'keterangan' => explode("|",$arraymss)[2],  // Menggunakan nama_siswa untuk nama
+            'karakter' => explode("|",$arraymss)[3],  // Menggunakan nama_siswa untuk nama
+            'konsekuensi' => explode("|",$arraymss)[4],  // Menggunakan nama_siswa untuk nama
+            'tanggal' => $request->tanggal,  // Menggunakan tanggal dari request
+          
+         
+         ]);
+        }
+ 
+     return redirect()->route('mss.index')->with('success', 'Data MSS berhasil ditambahkan.');
+ } 
+    
 
     public function edit(Mss $mss)
     {

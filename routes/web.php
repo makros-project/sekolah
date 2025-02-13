@@ -39,12 +39,12 @@ Route::middleware('auth')->group(function () {
     });
 
 
-Route::get('/import', [SiswaImportController::class, 'showForm'])->name('siswa.importForm');
-Route::post('/import', [SiswaController::class, 'import'])->name('siswa.import');
+Route::get('/import_siswa', [SiswaController::class, 'showForm'])->name('siswa.importForm');
+Route::post('/import_siswa', [SiswaController::class, 'import'])->name('siswa.import');
 
 
-Route::get('/import', [KodeMssController::class, 'showImportForm'])->name('kode_mss.importForm');
-Route::post('/import', [KodeMssController::class, 'import'])->name('kode_mss.import');
+Route::get('/import_kode', [KodeMssController::class, 'showImportForm'])->name('kode_mss.importForm');
+Route::post('/import_kode', [KodeMssController::class, 'import'])->name('kode_mss.import');
 
 });
 
