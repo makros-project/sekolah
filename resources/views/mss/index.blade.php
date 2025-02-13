@@ -19,28 +19,28 @@
                             <input type="date" class="form-control" id="tanggal" value="{{ date('Y-m-d') }}" name="tanggal" required>
                         </div>
                         <div class="mb-1">
-                            <label for="nama_siswa" class="form-label">Nama Siswa</label>
-                            <select id="nama_siswa" name="nama_siswa" class="form-control select2" required>
-                                <option value="" disabled selected>Pilih Siswa</option>
+                            <label for="nama" class="form-label">Nama Siswa</label>
+                            <select id="nama" name="nama" class="form-control select2" required>
+                                <option  disabled selected>Pilih Siswa</option>
                                 @foreach ($siswas as $siswa)
-                                    <option value="{{ $siswa->id }}">{{ $siswa->nama }}</option>
+                                    <option value="{{ $siswa->nama }}|{{ $siswa->kelas }}">{{ $siswa->nama }} - {{ $siswa->kelas }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="mb-1">
-                            <label for="nama_guru" class="form-label">Nama Guru</label>
-                            <select id="nama_guru" name="nama_guru" class="form-control select2" required>
-                                <option value="" disabled selected>Pilih Guru</option>
+                            <label for="guru" class="form-label">Nama Guru</label>
+                            <select id="guru" name="guru" class="form-control select2" required>
+                                <option  disabled selected>Pilih Guru</option>
                                 @foreach ($gurus as $guru)
-                                    <option value="{{ $guru->id }}">{{ $guru->nama }}</option>
+                                    <option value="{{ $guru->nama }}">{{ $guru->nama }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="mb-1">
                             <label for="mss" class="form-label">MSS</label>
                             <select id="mss" name="mss[]" class="form-control select2-multiple" multiple="multiple" required>
-                                @foreach ($kode_mss as $mssItems)
-                                    <option value="{{ $mssItems->kode_mss }}">{{ $mssItems->kode_mss }} - {{ $mssItems->keterangan }}</option>
+                                @foreach ($kode_msses as $mssItems)
+                                    <option value="{{ $mssItems->kode_mss }}|{{ $mssItems->poin }}|{{ $mssItems->keterangan }}|{{ $mssItems->karakter }}|{{ $mssItems->konsekuensi }}">{{ $mssItems->kode_mss }} - {{ $mssItems->poin }} - {{ $mssItems->keterangan }} - {{ $mssItems->karakter }} - {{ $mssItems->konsekuensi }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -51,11 +51,11 @@
             <table id="mssTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
+                        <th>#</th>
+                        <th>Tanggal</th>
                         <th>Kode</th>
                         <th>Nama</th>
                         <th>Poin</th>
-                        <th>Kode MSS</th>
-                        <th>Tanggal</th>
                         <th>Keterangan</th>
                         <th>Guru</th>
                         <th>Kelas</th>
@@ -67,11 +67,11 @@
                 <tbody>
                     @foreach ($mss as $item)
                     <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->tanggal }}</td>
                         <td>{{ $item->kode }}</td>
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->poin }}</td>
-                        <td>{{ $item->kode_mss }}</td>
-                        <td>{{ $item->tanggal }}</td>
                         <td>{{ $item->keterangan }}</td>
                         <td>{{ $item->guru }}</td>
                         <td>{{ $item->kelas }}</td>
