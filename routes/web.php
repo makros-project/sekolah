@@ -8,6 +8,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\KodeMssController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BankSoalController;
 use App\Http\Controllers\SiswaImportController;
 
 Route::get('/', function () {
@@ -42,6 +43,20 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/import_siswa', [SiswaImportController::class, 'showForm'])->name('siswa.importForm');
 Route::post('/import_siswa', [SiswaImportController::class, 'import'])->name('siswa.import');
+
+
+
+Route::get('banksoal', [BankSoalController::class, 'index'])->name('banksoal.index');
+Route::get('banksoal/create', [BankSoalController::class, 'create'])->name('banksoal.create');
+Route::post('banksoal/store', [BankSoalController::class, 'store'])->name('banksoal.store');
+Route::post('banksoal/import-csv', [BankSoalController::class, 'importCSV'])->name('banksoal.importCSV');
+// Route untuk menampilkan form edit
+Route::get('/banksoal/{id}/edit', [BankSoalController::class, 'edit'])->name('banksoal.edit');
+
+// Route untuk update soal
+Route::put('/banksoal/{id}', [BankSoalController::class, 'update'])->name('banksoal.update');
+// Route untuk menghapus soal
+Route::delete('/banksoal/{id}', [BankSoalController::class, 'destroy'])->name('banksoal.destroy');
 
 });
 

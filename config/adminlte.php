@@ -388,6 +388,22 @@ return [
              
             ],
         ],
+        [
+            'text' => 'BANK SOAL',
+            'icon' => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'DAFTAR SOAL',
+                    'url' => 'banksoal',
+                ],
+                [
+                    'text' => 'ENTRI SOAL',
+                    'url' => 'banksoal/create',
+                ],
+           
+             
+            ],
+        ],
         
     ],
 
