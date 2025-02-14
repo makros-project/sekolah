@@ -335,84 +335,60 @@ return [
             'label' => 4,
             'label_color' => 'success',
         ],
+        // [
+            
+
+        //         'text' => 'MSS',
+        //         'url' => 'kode_mss',
+        //         'icon' => 'far fa-fw fa-file',
+        //         'submenu' => [
+        //             [
+        //                 'text' => 'Data Kode MSS',
+        //                 'url' => 'kode_mss',
+        //             ],
+        //             [
+        //                 'text' => 'Entri MSS',
+        //                 'url' => 'mss',
+        //             ],
+        //         ],
+
+
+        // ],
+        // [
+        //     'text' => 'Data Kode MSS',
+        //     'url' => 'kode_mss',
+        //     'icon' => 'far fa-fw fa-file',
+        //     'label' => 4,
+        //     'label_color' => 'success',
+        // ],
+        // [
+        //     'text' => 'Data MSS',
+        //     'url' => 'mss',
+        //     'icon' => 'far fa-fw fa-file',
+        //     'label' => 4,
+        //     'label_color' => 'success',
+        // ],
+
         [
-            'text' => 'Data Kode MSS',
-            'url' => 'kode_mss',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
-        ],
-        [
-            'text' => 'Data MSS',
-            'url' => 'mss',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
-        ],
-        [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'multilevel',
+            'text' => 'MSS',
             'icon' => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Kode MSS',
+                    'url' => 'kode_mss',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'Rekap MSS',
+                    'url' => 'rekap_mss',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Entri MSS',
+                    'url' => 'mss',
                 ],
+             
             ],
         ],
-        ['header' => 'labels'],
-        [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
-        ],
-        [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
-        ],
-        [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
-        ],
+        
     ],
 
     /*

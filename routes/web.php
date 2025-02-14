@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('gurus', GuruController::class);
     Route::resource('kode_mss', KodeMssController::class);
     Route::resource('mss', MssController::class);
+    Route::get('rekap_mss', [MssController::class, 'rekap_mss']);
 
 
     Route::get('/export-siswa', function () {
