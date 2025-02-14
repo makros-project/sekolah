@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
 @section('content')
-<div class="container">
+<div class="">
     <div class="card">
         <div class="card-header bg-primary text-white">
             <h3 class="card-title">Daftar Kode MSS</h3>
             <div class="card-tools">
                 <a href="{{ route('kode_mss.create') }}" class="btn btn-light btn-sm">Tambah Kode</a>
-                <a href="{{ route('kode_mss.importForm') }}" class="btn btn-success btn-sm">Import Kode MSS</a> <!-- Tombol Import -->
+                {{-- <a href="{{ route('kode_mss.importForm') }}" class="btn btn-success btn-sm">Import Kode MSS</a> <!-- Tombol Import --> --}}
 
             </div>
         </div>
@@ -15,6 +15,7 @@
             <table id="kodeMssTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Kode MSS</th>
                         <th>Poin</th>
                         <th>Keterangan</th>
@@ -26,6 +27,7 @@
                 <tbody>
                     @foreach ($kodeMss as $kode)
                     <tr>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $kode->kode_mss }}</td>
                         <td>{{ $kode->poin }}</td>
                         <td>{{ $kode->keterangan }}</td>

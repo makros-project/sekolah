@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content')
-{{-- <div class="container"> --}}
+<div class="container">
     <div class="card">
         <div class="card-header bg-primary text-white">
             <h3 class="card-title">Rekap MSS</h3>
@@ -14,7 +14,7 @@
         <h2>Rekap berdasarkan SIswa</h2>
      </div>
         <div class="card-body">
-            <table id="mssTable" class="table table-bordered table-striped">
+            <table id="mssTable11" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -39,7 +39,7 @@
             <h2>Rekap berdasarkan Guru</h2>
          </div>
         <div class="card-body">
-            <table id="mssTable" class="table table-bordered table-striped">
+            <table id="mssTable1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -60,11 +60,11 @@
                 </tbody>
             </table>
         </div>
-        {{-- <div class="card-header">
+        <div class="card-header">
             <h2>Rekap berdasarkan MSS</h2>
          </div>
         <div class="card-body">
-            <table id="mssTable" class="table table-bordered table-striped">
+            <table id="mssTable1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -75,19 +75,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($mss as $item)
+                    @foreach ($rekap_mss as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->kode }}</td>
-                        <td>{{ $item->karakter }}</td>
-                        <td>{{ $item->poin }}</td>
+                        <td>{{ $item->keterangan }}</td>
+                        <td>{{ $item->total_poin }}</td>
                       
                   
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-        </div> --}}
+        </div>
     </div>
 </div>
 

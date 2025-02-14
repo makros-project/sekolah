@@ -13,6 +13,7 @@
             <table id="guruTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Kode</th>
                         <th>Nama</th>
                         <th>Aksi</th>
@@ -21,6 +22,7 @@
                 <tbody>
                     @foreach ($gurus as $guru)
                     <tr>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $guru->kode }}</td>
                         <td>{{ $guru->nama }}</td>
                         <td>

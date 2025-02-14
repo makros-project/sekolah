@@ -30,13 +30,13 @@ class MssController extends Controller
         ->groupBy('guru', 'kelas')
         ->get();
 
+        $rekap_mss = Mss::selectRaw('kode, keterangan, SUM(poin) as total_poin')
+        ->groupBy('kode', 'keterangan')
+        ->get();
 
-        // $rekap_mss_siswa = DB::table('msses')
-        //          ->select('nama', DB::raw('sum(poin) as total_poin'))
-        //          ->groupBy('nama')
-        //          ->get();
 
-        return view('mss.rekap', compact('rekap_mss_siswa', 'rekap_mss_guru'));
+
+        return view('mss.rekap', compact('rekap_mss_siswa', 'rekap_mss_guru', 'rekap_mss'));
     }
 
     public function create()

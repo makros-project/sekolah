@@ -15,7 +15,6 @@ class SiswaImport implements ToModel, WithHeadingRow
             'nama' => $row['nama'],
             'kelas' => $row['kelas'],
             'jk' => $row['jk'],
-            'poin' => $row['poin'],
         ]);
     }
 }

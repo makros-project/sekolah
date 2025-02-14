@@ -6,6 +6,7 @@
         <div class="card-header bg-primary text-white">
             <h3 class="card-title">Daftar Siswa</h3>
             <div class="card-tools">
+                <a href="{{ asset('files/template_siswa.csv') }}" class="btn btn-warning btn-sm">Template CSV</a>
                 <a href="{{ route('siswa.create') }}" class="btn btn-light btn-sm">Tambah Siswa</a>
                 <a href="{{ route('siswa.importForm') }}" class="btn btn-success btn-sm">Import Siswa</a> <!-- Tombol Import -->
             </div>
@@ -20,6 +21,7 @@
             <table id="siswaTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>NIS</th>
                         <th>Nama</th>
                         <th>Kelas</th>
@@ -31,6 +33,7 @@
                 <tbody>
                     @foreach ($siswas as $siswa)
                     <tr>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $siswa->nis }}</td>
                         <td>{{ $siswa->nama }}</td>
                         <td>{{ $siswa->kelas }}</td>
