@@ -376,14 +376,17 @@ return [
                 [
                     'text' => 'Kode MSS',
                     'url' => 'kode_mss',
+                    'icon' => 'fas fa-fw fa-',
                 ],
                 [
                     'text' => 'Rekap MSS',
                     'url' => 'rekap_mss',
+                    'icon' => 'fas fa-fw fa-',
                 ],
                 [
                     'text' => 'Entri MSS',
                     'url' => 'mss',
+                    'icon' => 'fas fa-fw fa-',
                 ],
              
             ],
@@ -393,12 +396,19 @@ return [
             'icon' => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'DAFTAR SOAL',
+                    'text' => 'Daftar Soal',
                     'url' => 'banksoal',
+                    'icon' => 'fas fa-fw fa-',
                 ],
                 [
-                    'text' => 'ENTRI SOAL',
+                    'text' => 'Entri Soal',
                     'url' => 'banksoal/create',
+                    'icon' => 'fas fa-fw fa-',
+                ],
+                [
+                    'text' => 'Print',
+                    'url' => '/filter-soal',
+                    'icon' => 'fas fa-fw fa-',
                 ],
            
              

@@ -9,8 +9,6 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <!-- Tambah Soal Button -->
-            <a href="{{ route('banksoal.create') }}" class="btn btn-primary mb-3">Tambah Soal Baru</a>
 
             <!-- Pesan Sukses -->
             @if (session('success'))
@@ -19,8 +17,14 @@
                 </div>
             @endif
 
+       
             <!-- Tabel Daftar Bank Soal -->
             <div class="card">
+ <div class="card-header">
+            <!-- Tambah Soal Button -->
+        <a href="{{ route('banksoal.create') }}" class="btn btn-primary mb-3">Tambah Soal Baru</a>
+
+        </div>
                 <div class="card-body">
                     <table class="table table-bordered table-striped">
                         <thead>

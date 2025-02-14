@@ -1,10 +1,12 @@
 <?php
 
+use App\Exports\MssExport;
 use App\Exports\SiswaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MssController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\SoalController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\KodeMssController;
 use App\Http\Controllers\ProfileController;
@@ -12,7 +14,7 @@ use App\Http\Controllers\BankSoalController;
 use App\Http\Controllers\SiswaImportController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::get('/', function () {
@@ -39,11 +41,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/export-siswa', function () {
         return Excel::download(new SiswaExport, 'siswa.xlsx');
     });
+    Route::get('/export-mss', function () {
+        return Excel::download(new MssExport, 'mss.xlsx');
+    });
+
+    Route::get('/download-soal', [SoalController::class, 'downloadSoal']);
+    Route::get('/lihat-soal', [SoalController::class, 'lihatSoal'])->name('banksoal.lihat');
+
 
 
 Route::get('/import_siswa', [SiswaImportController::class, 'showForm'])->name('siswa.importForm');
 Route::post('/import_siswa', [SiswaImportController::class, 'import'])->name('siswa.import');
 
+
+
+Route::get('filter-soal', [SoalController::class, 'filterSoal'])->name('banksoal.filter');
 
 
 Route::get('banksoal', [BankSoalController::class, 'index'])->name('banksoal.index');

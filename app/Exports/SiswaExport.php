@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Exports;
-namespace App\Exports;
 
 use App\Models\Siswa;
 use Maatwebsite\Excel\Concerns\FromArray;
