@@ -22,16 +22,21 @@ class MssController extends Controller
 
     public function rekap_mss()
     {
-        $rekap_mss_siswa = Mss::selectRaw('nama, SUM(poin) as total_poin')
-        ->groupBy('nama')
+        $rekap_mss_siswa = Mss::selectRaw('nama, kelas, SUM(poin) as total_poin')
+        ->groupBy('nama', 'kelas')
         ->get();
+
+        $rekap_mss_guru = Mss::selectRaw('guru, kelas, SUM(poin) as total_poin')
+        ->groupBy('guru', 'kelas')
+        ->get();
+
 
         // $rekap_mss_siswa = DB::table('msses')
         //          ->select('nama', DB::raw('sum(poin) as total_poin'))
         //          ->groupBy('nama')
         //          ->get();
 
-        return view('mss.rekap', compact('rekap_mss_siswa'));
+        return view('mss.rekap', compact('rekap_mss_siswa', 'rekap_mss_guru'));
     }
 
     public function create()

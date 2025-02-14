@@ -35,7 +35,7 @@
                 </tbody>
             </table>
         </div>
-        {{-- <div class="card-header">
+        <div class="card-header">
             <h2>Rekap berdasarkan Guru</h2>
          </div>
         <div class="card-body">
@@ -44,24 +44,23 @@
                     <tr>
                         <th>#</th>
                         <th>Guru</th>
-                        <th>Kode</th>
                         <th>Total Poin</th>
                      
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($mss as $item)
+                  
+                    @foreach ($rekap_mss_guru as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->guru }}</td>
-                        <td>{{ $item->kode }}</td>
-                        <td>{{ $item->poin }}</td>
+                        <td>{{ $item->total_poin }}</td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        <div class="card-header">
+        {{-- <div class="card-header">
             <h2>Rekap berdasarkan MSS</h2>
          </div>
         <div class="card-body">
