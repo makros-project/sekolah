@@ -3,9 +3,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Mss;
 use App\Models\Guru;
-use App\Models\KodeMss;
 use App\Models\Siswa;
+use App\Models\KodeMss;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MssController extends Controller
 {
@@ -17,6 +18,20 @@ class MssController extends Controller
         $kode_msses = KodeMss::all();
 
         return view('mss.index', compact('mss','siswas', 'gurus', 'kode_msses'));
+    }
+
+    public function rekap_mss()
+    {
+        $rekap_mss_siswa = Mss::selectRaw('nama, SUM(poin) as total_poin')
+        ->groupBy('nama')
+        ->get();
+
+        // $rekap_mss_siswa = DB::table('msses')
+        //          ->select('nama', DB::raw('sum(poin) as total_poin'))
+        //          ->groupBy('nama')
+        //          ->get();
+
+        return view('mss.rekap', compact('rekap_mss_siswa'));
     }
 
     public function create()
@@ -47,8 +62,7 @@ class MssController extends Controller
             'karakter' => explode("|",$arraymss)[3],  // Menggunakan nama_siswa untuk nama
             'konsekuensi' => explode("|",$arraymss)[4],  // Menggunakan nama_siswa untuk nama
             'tanggal' => $request->tanggal,  // Menggunakan tanggal dari request
-          
-         
+  
          ]);
         }
  
